@@ -17,6 +17,7 @@ function App() {
       <UserProfile name="Kelly" age={19} bio="Aspiring coder" />
       <MainContent />
       <Footer />
+      <Counter />
     </>
   )
 }
