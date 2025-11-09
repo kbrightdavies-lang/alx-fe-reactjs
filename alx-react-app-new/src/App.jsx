@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import Footer from "./components/Footer";
-import UserProfile from "./components/UserProfile";
+import Header from "./src/components/Header.jsx";
+import MainContent from "./src/components/MainContent.jsx";
+import Footer from "./src/components/Footer.jsx";
+import UserProfile from "./src/components/UserProfile.jsx";
 
 
 
