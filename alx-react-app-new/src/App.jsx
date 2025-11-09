@@ -4,12 +4,15 @@ import Header from "./src/components/Header.jsx";
 import MainContent from "./src/components/MainContent.jsx";
 import Footer from "./src/components/Footer.jsx";
 import UserProfile from "./src/components/UserProfile.jsx";
+import ProfilePage from './src/components/ProfilePage';
 
 
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
 
   return (
     <>
@@ -18,6 +21,10 @@ function App() {
       <MainContent />
       <Footer />
       <Counter />
+      <ProfilePage userData={userData} />;
+      <UserProfile />
+      <UserDetails />
+      <UserInfo />
     </>
   )
 }
