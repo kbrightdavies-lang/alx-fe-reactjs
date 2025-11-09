@@ -5,28 +5,40 @@ import MainContent from "./src/components/MainContent.jsx";
 import Footer from "./src/components/Footer.jsx";
 import UserProfile from "./src/components/UserProfile.jsx";
 import ProfilePage from './src/components/ProfilePage';
+import UserContext from './src/components/UserContent';
+import UserDetails from './src/components/UserDetails';
 
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
-  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+  const [count, setCount] = useState({
+  const :userData = { name: "Jane Doe", email: "jane.doe@example.com" },
+  const :userData = useState({
+    name: "Kelly",
+    age: 19,
+    bio: "Aspiring animator and writer",
+  })
+});  
+  
 
 
   return (
     <>
+    <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
       <Header />
-      <UserProfile name="Kelly" age={19} bio="Aspiring coder" />
+      <UserProfile />
       <MainContent />
       <Footer />
       <Counter />
-      <ProfilePage userData={userData} />;
       <UserProfile />
       <UserDetails />
       <UserInfo />
+      <UserDetails />
     </>
-  )
+  );
 }
 
 export default App
