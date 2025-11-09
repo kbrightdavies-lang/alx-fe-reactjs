@@ -1,10 +1,10 @@
-import UserInfo from './UserInfo';
+import UserProfile from './src/components/UserProfile'
 
 function ProfilePage() {
   return (
     <div>
       <h1>Profile Page</h1>
-      <UserDetails />
+      <UserProfile />
     </div>
   );
 }

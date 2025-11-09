@@ -15,6 +15,12 @@ function App() {
   const [count, setCount] = useState({
   const :userData = { name: "Jane Doe", email: "jane.doe@example.com" },
 });  
+
+const [userData] = useState({
+    name: "Kelly",
+    age: 19,
+    bio: "Aspiring coder",
+  });
   
 
 
@@ -32,6 +38,7 @@ function App() {
       <UserDetails />
       <UserInfo />
       <UserDetails />
+      <UserContext />
     </>
   );
 }
