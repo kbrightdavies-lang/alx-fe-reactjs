@@ -2,7 +2,8 @@ import RecipeList from '.src/components/RecipeList';
 import AddRecipeForm from '.src/components/AddRecipeForm';
 import RecipeDetails from '.src/components/RecipeDetails';
 import SearchBar from '.src/components/SearchBar';
-
+import FavoritesList from '.src/components/FavoritesList';
+import RecommendationsList from '.src/components/RecommendationsList';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
             <AddRecipeForm />
             <RecipeList />
             <SearchBar />
+            <FavoritesList />
+            <RecommendationsList />
           </>
         } />
         <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
