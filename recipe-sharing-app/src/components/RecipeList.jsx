@@ -5,6 +5,9 @@
   const RecipeList = () => {
     const recipes = useRecipeStore(state => state.recipes);
 
+    if (recipes.length === 0) return <p>No recipes found.</p>;
+
+
     return (
       <div>
         <h2>Recipes</h2>
@@ -12,10 +15,6 @@
           <div key={recipe.id}>
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
-
-            <link to={`/recipe/${recipe.id}`}>
-            <button>View Details</button>
-            </link>
           </div>
         ))}
       </div>

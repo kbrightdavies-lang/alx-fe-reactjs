@@ -1,6 +1,7 @@
 import RecipeList from '.src/components/RecipeList';
 import AddRecipeForm from '.src/components/AddRecipeForm';
 import RecipeDetails from '.src/components/RecipeDetails';
+import SearchBar from '.src/components/SearchBar';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           <>
             <AddRecipeForm />
             <RecipeList />
+            <SearchBar />
           </>
         } />
         <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
