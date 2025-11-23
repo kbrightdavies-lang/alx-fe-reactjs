@@ -1,5 +1,4 @@
 import axios from "axios";
-import.meta.env.VITE_APP_GITHUB_API_KEY
 
 const BASE_URL = "https://api.github.com";
 
