@@ -55,7 +55,7 @@ function Search() {
       {/* Error */}
       {error && (
         <p style={{ marginTop: "1rem", color: "red" }}>
-          Looks like we can't find the user.
+          "Looks like we can't find the user"
         </p>
       )}
 
