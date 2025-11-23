@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import SearchBar from './components/SearchBar';
+import Search from './components/Search';
 import UserCard from './components/UserCard';
 
 
