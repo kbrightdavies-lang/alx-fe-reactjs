@@ -3,91 +3,101 @@ import fetchUserData from "../services/githubService";
 
 function Search() {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null);
+  const [location, setLocation] = useState("");
+  const [minRepos, setMinRepos] = useState("");
+  const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-
-    if (!username.trim()) return;
-
     setLoading(true);
     setError(false);
-    setUser(null);
+    setResults([]);
 
-    try {
-      const result = await fetchUserData(username);
-      setUser(result);
+    
+
+  try {
+      const users = await advancedUserSearch(username, location, minRepos);
+      setResults(users);
     } catch (err) {
       setError(true);
-    } finally {
-      setLoading(false);
     }
+
+    setLoading(false);
   };
 
   return (
-    <div style={{ marginTop: "1rem" }}>
-      {/* Search Form */}
-      <form onSubmit={handleSubmit}>
+    <div className="max-w-xl mx-auto mt-6 p-4 bg-white shadow rounded">
+      <form onSubmit={handleSearch} className="space-y-4">
+
         <input
           type="text"
-          placeholder="Enter GitHub username"
+          placeholder="Username..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          style={{
-            padding: "0.5rem",
-            width: "250px",
-            marginRight: "0.5rem",
-          }}
+          className="w-full border p-2 rounded"
         />
+
+        <input
+          type="text"
+          placeholder="Location..."
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="w-full border p-2 rounded"
+        />
+
+        <input
+          type="number"
+          placeholder="Minimum Repositories"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          className="w-full border p-2 rounded"
+        />
+
         <button
           type="submit"
-          style={{ padding: "0.5rem 1rem", cursor: "pointer" }}
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
         >
           Search
         </button>
       </form>
 
-      {/* Loading */}
-      {loading && <p style={{ marginTop: "1rem" }}>Loading...</p>}
+      {loading && <p className="mt-4 text-center">Loading...</p>}
 
-      {/* Error */}
       {error && (
-        <p style={{ marginTop: "1rem", color: "red" }}>
-          "Looks like we can't find the user"
+        <p className="mt-4 text-center text-red-600">
+          Something went wrong. Try different search terms.
         </p>
       )}
 
-      {/* Successful Result */}
-      {user && (
-        <div
-          style={{
-            marginTop: "1rem",
-            padding: "1rem",
-            border: "1px solid #ddd",
-            borderRadius: "6px",
-            width: "300px",
-          }}
-        >
-          <img
-            src={user.avatar_url}
-            alt={user.login}
-            style={{ width: "80px", borderRadius: "50%" }}
-          />
-          <h3>{user.name || user.login}</h3>
-          <a
-            href={user.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "blue" }}
+      {/* RESULTS */}
+      <div className="mt-6 space-y-4">
+        {results.map((user) => (
+          <div
+            key={user.id}
+            className="flex items-center p-4 border rounded shadow"
           >
-            View GitHub Profile
-          </a>
-        </div>
-      )}
+            <img
+              src={user.avatar_url}
+              alt={user.login}
+              className="w-16 h-16 rounded-full"
+            />
+            <div className="ml-4">
+              <h3 className="font-semibold">{user.login}</h3>
+              <a
+                href={user.html_url}
+                target="_blank"
+                className="text-blue-600 hover:underline"
+              >
+                View Profile
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-export default Search;
+export default Search; 
