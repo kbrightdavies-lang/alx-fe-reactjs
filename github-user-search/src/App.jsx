@@ -4,16 +4,14 @@ import UserCard from './components/UserCard';
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+    <div style={{ padding: "2rem" }}>
       <h1>GitHub User Search</h1>
-      <p>Build in progress... 🔧</p>
+      <SearchBar />
     </div>
-      </> 
-  )
+  );
 }
 
-export default App
+export default App;
+
+ 

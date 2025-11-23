@@ -1,4 +1,5 @@
 import axios from "axios";
+import.meta.env.VITE_APP_GITHUB_API_KEY
 
 const BASE_URL = "https://api.github.com";
 
@@ -17,5 +18,5 @@ export const searchUser = async (username) => {
     throw error;
   }
 };
+export default fetchUserData;
 
-import.meta.env.VITE_APP_GITHUB_API_KEY
