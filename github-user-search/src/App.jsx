@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import SearchBar from './src/components';
+import UserCard from './src/components/UserCard';
+
 
 function App() {
   const [count, setCount] = useState(0)
